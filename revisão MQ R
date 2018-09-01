@@ -1,0 +1,84 @@
+### PARTE 1
+
+## teste de operações e funções
+3 + 5
+183082 - 21982
+92 * 1.6
+900/30
+40^2
+sqrt(9)
+
+## criando objetos e atribuindo características
+x <- 20
+y <- c(TRUE, FALSE)
+class(y)
+class(x)
+z <- 1:100
+w <- c("Rodrigo", "Raissa", "Guilherme")
+v <- c(1.79, 1.59, 0.54)
+
+## banco de dados, diretório de trabalho e manipulação
+dados_altura <- data.frame(w, v)
+getwd() # ver o diretório de trabalho
+setwd("INSIRA/SEU/CAMINHO/AQUI/Estudos em R") #definir o diretório
+list.files() # ver os arquivos no diretório
+cttu2017 <- read.csv("acidentes2017.csv") # carrega banco e atribui a objetos
+cttu2016 <- read.csv("acidentes2016.csv")
+library(readr)
+cttu2017 <- read_delim("/home/albuquerque2012/Documentos/estatistica/rev1/acidentes2017.csv"), ";", escape_double = FALSE, trim_ws = TRUE)
+> cttu2017$tipo <- as.factor(cttu2017$tipo) #transforma em fator
+> levels(cttu2017$tipo) #vê as categorias
+
+## visualização de dados
+library(ggplot2)
+table(cttu2017$bairro) #tabela de frequência dos acidentes por bairro
+
+####################################
+
+### PARTE 2
+
+# pacotes de leitura de banco de dados e de manipulação de strings
+install.packages(c("readr","stringr"))
+library("readr");library("stringr")
+
+# carregar banco de dados e visualização da estrutura
+atlasbr <- read_csv("/home/albuquerque2012/Documentos/estatistica/rev2/AtlasBrasil_Consulta.csv")
+str(atlasbr)
+
+# manipulação do banco
+atlasbr$'IDHM 2010' <- str_replace(AtlasBrasil$'IDHM 2010', ",", ".")
+atlasbr$'IDHM 2010'
+atlasbr$'IDHM 2010' <- as.numeric(atlasbr$'IDHM 2010')
+class(atlasbr$'IDHM 2010')
+str(atlasbr)
+
+# visualização do banco de dados
+head(AtlasBrasil$Espacialidades, 20)
+tail(AtlasBrasil$Espacialidades, 20)
+
+# seleção de casos específicos e criação de variável lógica
+atlasbr$PE <- str_detect(atlasbr$Espacialidades, "(PE)")
+atlasbrPE <- atlasbr[atlasbr$PE == TRUE,]
+
+# gravação de banco novo
+write.csv(atlasbrPE,"atlasbrPE.csv",row.names=FALSE)
+
+# estatística descritiva
+epic <- read_csv("/home/albuquerque2012/Documentos/estatistica/rev2/epi2018countrysnapshotv01.csv")
+str(epic)
+mean(epic$EPI2018Score)
+median(epic$EPI2018Score)
+table(epic$EPI2018Score) #frequência
+min(epic$EPI2018Score)
+max(epic$EPI2018Score)
+sd(epic$EPI2018Score)
+summary(epic$EPI2018Score) #todas as medidas acima, exceto sd
+
+# para sair de funções de ajuda no terminal, usar q()
+
+# pacote de gráficos ggplot2
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data = epic, aes(x = EPI2018Score)) + geom_histogram() # banco de dados, estética(variáveis) e tipo de gráfico
+ggplot(data = epic, aes(x = EPI2018Score)) + geom_density()
+ggplot(epic) + geom_boxplot(aes(y = epic$EPI2018Score, x = 1))
