@@ -1,0 +1,16 @@
+### usando o Git
+cria pasta, entra, botão direito, terminal
+git clone <link do projeto no github>
+git init
+
+### no terminal
+git add .
+git commit -m "msg sobre alteração"
+
+git config --global user.email "albuquerque.rodrigo@gmail.com"
+git config --global user.name "albuquerque2012"
+git commit -m "commitzero"
+
+git push #envia para o projeto no github
+git pull #atualizar com o que tem no projeto no github
+
