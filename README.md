@@ -1,2 +1,2 @@
 # aulas-R
-Estudo R qualquer coisa
+Aprendendo a usar o R 
