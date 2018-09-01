@@ -1,0 +1,127 @@
+---
+title: "Análise de Dados em R - Bloco 3"
+author: "Cláudio A. Monteiro"
+date: "February 25, 2018"
+output:
+   rmdformats::readthedown:
+    highlight: kate
+---
+<style>
+body {
+text-align: justify}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# **Revisão**
+
+#### Vamos revisar o que viemos desenvolvendo até o momento!
+
+</br>
+
+#### 1. Diga o resultado dos testes condicionais abaixo:
+
+```{r, results=FALSE}
+x = 10
+y = 3**2
+x <= y
+```
+
+
+```{r, results=FALSE}
+x = 10
+y = 3**2
+z = 3**3
+x <= y & x > z
+```
+
+
+```{r, results=FALSE}
+x = 27
+y = 3**3
+x != y
+```
+
+
+```{r, results=FALSE}
+x = 100
+y = 10*2
+z = 10**2
+x >= y | x == z
+```
+
+</br>
+
+#### 2. Traduza e teste no R as condições abaixo:
+
+a) Uma turma de amigos foi pescar no lago da cidade no fim de semana. José pegou 5 peixes, Joaquim pegou 8. Maria, o dobro de peixes de José menos a quantidade de peixes que Joaquim capturou. Maria capturou menos peixes que Joaquim e José juntos?
+
+```{r, echo=FALSE, results='hide',message=FALSE}
+jose  = 5
+joaquim = 8
+maria = jose*2 - joaquim
+maria < joaquim + jose
+```
+
+b) E se Maria se juntar com José, eles terão mais peixes do que Joaquim?
+
+```{r, echo=FALSE, results='hide',message=FALSE}
+maria + jose > joaquim
+```
+c) Carol foi passear em Lisboa com suas filhas. A mais nova comprou 3 euros de sorvete e a mais velha comprou 8. Carol comprou o quadrado do que a mais nova comprou. Teste se Carol comprou mais sorvete que a filha mais velha ou menos que a filha mais nova (em um só teste).
+
+</br>
+
+#### 3. Marcelo tem 1,90m de altura, pesa 85 quilos e come cuzcuz. Gabriel tem 1,70m de altura, pesa 50 quilos e não come cuzcuz. Josefina tem 1,53m de altura, pesa 44 quilos e come cuzcuz. Por útimo, Clara tem 1,79m de altura, pesa 70 quilos e come cuzcuz. Construa uma base de dados com essas informações.
+
+</br>
+
+```{r, echo=FALSE, results='hide',message=FALSE}
+# ADD QUESTOUES DE MANIPULACAO MAIS SIMPLES
+
+## 
+
+##
+
+##
+
+##
+
+##
+
+##
+```
+
+#### 4. Com base no *dataframe* que construimos anteriormente, retorne as seguintes informações:
+
+a) Qual a altura média das pessoas?
+
+b) Qual o peso média das pessoas?
+ 
+c) Qual o peso médio das pessoas que comem cuzcuz?
+
+d) Qual o peso médio das pessoas que comem cuzcuz e pesam mais que 70 quilos?
+
+e) Qual a altura média das pessoas que possuem a letra 'l' no nome?
+
+f) Qual a altura média das pessoas que não possuem a letra 'i' no nome?
+
+</br>
+
+
+#### 5. Ainda com base no nosso banco criado faça o que se pede abaixo:
+
+a) Faça um gráfico de Frequência para a variavel 'Altura'.
+
+d) Faça um gráfico de Frequência para a variavel 'Peso'.
+
+</br>
+
+### EXTRA: you can do it!!
+
+Procure como fazer um gráfico de dispersão no R e relacione as variáveis 'Altura' e 'Peso'.
+
+
+
