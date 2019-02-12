@@ -2,8 +2,13 @@ setwd("mod 2 aula 2")
 titanic_data <- read.csv("titanic_data.csv", sep =";", stringsAsFactors=FALSE)
 str(titanic_data)
 titdata_sel <- titanic_data[,c("Survived", "Pclass", "Sex", "Age", "Fare")]
-install.packages("Amelia")
-library(Amelia)
+
+# Essa estrutura de codigo para importacao de pacotes e ideal
+# levando em conta a replicabilidade, pois testa se o pacote ja existe e caso
+# nao, ele sera instalado e carregado
+if (require(Amelia) == FALSE) install.packages("Amelia"); require(Amelia)
+
+
 missmap(titdata_sel)
 
 titdata_ageclean <- titdata_sel[complete.cases(titdata_sel$Age),]
@@ -52,7 +57,12 @@ acid_exerc <- mutate(acid_exerc, madalena = ifelse(bairro == "MADALENA", 1, 0))
 acid_exerc <- mutate(acid_exerc, iputinga = ifelse(bairro == "IPUTINGA", 1, 0))
 library(tidyr)
 acid_exerc <- drop_na(acid_exerc, madalena, iputinga, AVCA, AVBV, auto) #apaga os missing cases das variáveis de interesse
-acid_exerc_v2 <- acid_exerc[,c(11,21,22,24,25,26)]
+
+###################################
+### SCRIPT TRAVADO A PARTIR DAQUI
+
+acid_exerc_v2 <- acid_exerc[,c(11,21,22,24,25,26)] #### tu tentou fazer o que aqui? nao esta funcionando (se liga na numeracao das colunas)
+
 str(acid_exerc)
 sum(acid_exerc_v2$madalena)
 sum(acid_exerc_v2$iputinga)
